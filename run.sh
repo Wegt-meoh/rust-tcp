@@ -1,8 +1,9 @@
 #!/bin/bash
+export CARGO_TARGET_DIR=/com.docker.devenvironments.code/target
 cargo b --release
 ext=$?
 if [[ $ext -ne 0 ]]; then
-	exit $ext
+    exit $ext
 fi
 sudo setcap cap_net_admin=eip $CARGO_TARGET_DIR/release/trust
 $CARGO_TARGET_DIR/release/trust &

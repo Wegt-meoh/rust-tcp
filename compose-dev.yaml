@@ -1,11 +1,14 @@
 services:
   app:
     entrypoint:
-    - sleep
-    - infinity
+      - sleep
+      - infinity
     image: wgetmeoh/rust-lang-dev-env:debian
     init: true
+    securityContext:
+      capabilities:
+        add: ["NET_ADMIN", "NET_RAW"]
     volumes:
-    - type: bind
-      source: ./
-      target: /com.docker.devenvironments.code
+      - type: bind
+        source: ./
+        target: /com.docker.devenvironments.code
