@@ -5,7 +5,7 @@ services:
       - infinity
     image: wgetmeoh/rust-lang-dev-env:debian
     init: true
-    can_add:
+    cap_add:
       - NET_ADMIN
       - NET_RAW
     volumes:
